@@ -63,7 +63,7 @@ health-insurance-claims-analyser/
 
 ---
 
-## 🚀 How to run
+## How to run
 
 ### Prerequisites
 ```bash
