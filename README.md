@@ -136,4 +136,4 @@ The result would be an actionable underwriting and policy planning tool for Nige
 
 ---
 
-*Starter portfolio project built as part of a structured health finance data science learning journey*
+*Starter portfolio project built as part of a structured health finance data science learning journey at the Digital Healthcare Interoperability Network (DHIN), Abuja, Nigeria.*
