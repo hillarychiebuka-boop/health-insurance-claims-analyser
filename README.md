@@ -1,36 +1,39 @@
 # health-insurance-claims-analyser
-Exploratory data analysis + machine learning to identify what drives health insurance claim costs — with implications for Nigerian health finance and NHIA policy.
-
-**Author:** Hillary Onah — Finance & Data Science Analyst, DHIN  
-**Built:** June 2026 | **Stack:** Python · Pandas · Scikit-learn · Streamlit · Plotly  
+Exploratory data analysis + machine learning to identify what drives health insurance claim costs — with implications for Nigerian health finance and NHIA policy. 
 
 ---
 
-## Project overview
+## Problem
 
-Nigeria's National Health Insurance Authority (NHIA) covers less than 5% of the population. A key barrier to scaling coverage is the inability to accurately price risk and predict claim costs across different enrollee profiles.
+Nigeria's National Health Insurance Authority (NHIA) covers less than 5% of the population. A key barrier to scaling coverage is unsustainable claims expenditure: HMOs lose money on high-risk enrollees they cannot identify in advance, which suppresses willingness to expand coverage to informal sector workers and low-income households.
 
-This project analyses health insurance claims data to answer three practical questions:
+To design premiums that are both affordable and actuarially sound, you need to know: **what actually drives claim cost up and can predict it before someone enrolls?** 
 
-1. **What is the distribution of claim costs** — and where does financial risk concentrate?
-2. **Which patient characteristics drive costs up** — age, lifestyle, geography, or demographics?
-3. **Can we predict a patient's likely claim cost** from their profile with reasonable accuracy?
-
-The answers have direct applications for HMO premium design, NHIA actuarial modelling, and state-level Contributory Health Scheme planning.
+Analysed 1,337 insurance claims across age, sex, BMI, smoking status, number of dependents, and region. Built two machine learning models: Linear Regression and Random Forest to identify cost drivers and predict individual claim amounts.
 
 ---
 
 ## Key findings
 
-| Finding | Insight |
+| Finding | What it means |
 |--------|---------|
-| **Smoking is the #1 cost driver** | Smokers generate claims **3.8x higher** than non-smokers — importance score 0.60 in Random Forest model |
-| **BMI is the second predictor** | Relevant for chronic disease profiling — diabetes and hypertension are fast-growing cost drivers in Nigeria |
-| **Age escalates costs consistently** | 55+ group costs **2.1x more** than under-25s — age-banded pricing is actuarially justified |
-| **Region barely matters** | Only ~$2,000 spread across regions — lifestyle factors outweigh geography |
-| **Cost distribution is right-skewed** | Most claims are low-cost, but a high-cost tail (>$30k) drives disproportionate financial exposure |
+| **Smoking drives 3.8 times higher claims** | The single dominant cost variable: outweights age, BMI, refion, and sex combined |
+| **BMI is the second predictor** | Chronic disease risk(diabetes, hypertension) are fast-growing cost burden in Nigeria |
+| **55+ group costs 2.1 times more than under 25s** | Age-banded premium pricing is actuarially justified |
+| **Region variation is minimal (~ $2,000 spread)** | Lifestyle factors outweight geography, location-based pricingg adds little value |
+| **12.1% of claims exceed $30,000** | A small high-cost minority drives disproportionate financial exposure across the pool |
 
 ---
+## Recommendation
+
+1. **Weight smoking status heavily** In any Nigerian HMO premium model: it is the strongest predictor by a significant margin.
+2. **Introduce BMI-based risk screening** at enrollment: Early identification of chronic disease risk reduces long-term claims
+3. **Design age-banded premium tiers**: The cost escalation from young to older enrolles is consistent and predictable.
+4. **Invest in smoker wellness programmes**: The cost differential is large enough that even modest quit rates would materially reduce claims expenditure.
+
+## Impact (next version)
+
+Apply this same framework to real Nigerian NHIA claims with LGA geography, ICD-10 diagnosis codes, and facility type. The result is an actionable underwriting tool that helps Nigerian HMOs price risk sustainably and helps NHIA model the actuarial cost of universal coverage expansion.
 
 ## Machine learning results
 
@@ -40,9 +43,20 @@ The answers have direct applications for HMO premium design, NHIA actuarial mode
 | MAE (avg prediction error) | $4,182 | **$2,556** |
 | RMSE | $5,958 | **$4,628** |
 
-**Random Forest wins** — complex interactions between risk factors exist that a linear model cannot capture. The 88.3% R² means the model explains the vast majority of why claim costs differ between patients.
+**Random Forest** expains 88% of why claim costs differ between patients, sufficient accuracy for exploratory premuim modelling and risk segmentation.
 
 ---
+
+## Feature importance: What actually drives costs
+
+| Feature | Importance | Interpretation |
+|---------|:-----------| :--------------|
+| Smoking status | 0.60 | Dominant variable: 3.8x cost multiplier |
+| BMI | 0.21 | Chronic disease proxy |
+| Age | 0.14 | Consistent escalation across groups |
+| Children | 0.03 | Minimal impact |
+| Region | 0.02 | Geography barely matters |
+| Sex | 0.01 | Negligible cost difference
 
 ## Project structure
 
@@ -103,21 +117,9 @@ Random Forest predictions cluster tightly around the perfect-prediction line vs 
 
 ---
 
-## Tech stack
+## Dataset & Nigerian context
 
-| Tool | Purpose |
-|------|---------|
-| `pandas` | Data loading, cleaning, transformation |
-| `matplotlib` / `seaborn` | Static charts |
-| `plotly` | Interactive dashboard charts |
-| `scikit-learn` | Linear Regression + Random Forest models |
-| `streamlit` | Interactive web dashboard |
-
----
-
-## Nigerian context & next steps
-
-This project uses US insurance data as a proof-of-concept. The same analytical framework applied to Nigerian NHIS/NHIA claims data would need:
+This project uses US Medical insurance costs data as a proof-of-concept: 1,338 records (public domain). The same analytical framework applied to Nigerian NHIS/NHIA claims data would need:
 
 - **Replace region** with State / LGA-level geography
 - **Add ICD-10 diagnosis codes** for disease-specific cost analysis
@@ -128,12 +130,4 @@ The result would be an actionable underwriting and policy planning tool for Nige
 
 ---
 
-##  Related projects (coming soon)
-
-- Out-of-pocket health spending vs income — Nigerian households
-- Hospital revenue leakage detector
-- Nigeria health financing gap dashboard
-
----
-
-*Starter portfolio project built as part of a structured health finance data science learning journey at the Digital Healthcare Interoperability Network (DHIN), Abuja, Nigeria.*
+*Build as part of a structured health finance data science portfolio at the Digital Healthcare Interoperability Network (DHIN), Abuja, Nigeria.*
