@@ -131,3 +131,6 @@ The result would be an actionable underwriting and policy planning tool for Nige
 ---
 
 *Build as part of a structured health finance data science portfolio at the Digital Healthcare Interoperability Network (DHIN), Abuja, Nigeria.*
+
+**Author:** Hillary Onah — Finance & Data Science Analyst, DHIN  
+**Built:** June 2026 | **Stack:** Python · Pandas · Scikit-learn · Streamlit · Plotly
