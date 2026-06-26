@@ -1,14 +1,19 @@
 # health-insurance-claims-analyser
 Exploratory data analysis + machine learning to identify what drives health insurance claim costs with implications for Nigerian health finance and NHIA policy. 
 
+A screen recording of the live dashboard is available in the LinkedIn post linked below.
+
+https://www.linkedin.com/posts/chiebuka-hillary-onah_datascience-healthfinance-machinelearning-ugcPost-7471558259259400192-GQcr/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEFljTsBnhfx761Pb9UwpEsh9xn7sYfuVGA
+
 ---
 
-## Problem
+## Statement of Problem
 
 Nigeria's National Health Insurance Authority (NHIA) covers less than 5% of the population. A key barrier to scaling coverage is unsustainable claims expenditure: HMOs lose money on high-risk enrollees they cannot identify in advance, which suppresses willingness to expand coverage to informal sector workers and low-income households.
 
 To design premiums that are both affordable and actuarially sound, you need to know: **what actually drives claim cost up and can predict it before someone enrolls?** 
 
+# Data Ananlysis
 Analysed 1,337 insurance claims across age, sex, BMI, smoking status, number of dependents, and region. Built two machine learning models: Linear Regression and Random Forest to identify cost drivers and predict individual claim amounts.
 
 ---
